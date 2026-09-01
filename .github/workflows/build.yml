@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -25,11 +26,19 @@ jobs:
         gradle-version: '8.1.1'
         cache-disabled: true
 
-    - name: Build APK with Detailed Log
-      run: gradle assembleDebug --stacktrace --info
+    - name: Build APK and Capture Log
+      # 將所有終端機輸出存入 build_log.txt
+      run: gradle assembleDebug --stacktrace --info > build_log.txt 2>&1
+      continue-on-error: true
+
+    - name: Upload Error Log
+      # 強制將日誌檔上傳，方便我們下載查看
+      uses: actions/upload-artifact@v4
+      with:
+        name: Error-Log
+        path: build_log.txt
 
     - name: Upload APK Artifact
-      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: OTG-Signal-Logger-APK
