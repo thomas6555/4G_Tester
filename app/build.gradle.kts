@@ -35,6 +35,6 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     
     // OTG Serial 與 GPS 庫
-    implementation("com.github.mik3y:usb-serial-for-android:3.11.0")
+    implementation("com.github.mik3y:usb-serial-for-android:3.4.6")
     implementation("com.google.android.gms:play-services-location:21.0.1")
 }
