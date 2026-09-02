@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. 檢出專案程式碼
+      # 1. 檢出專案程式碼（已升級至 v5）
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      # 2. 設定 JDK 17（已升級至 v5 解決棄用警告）
+      # 2. 設定 JDK 17（已升級至 v5）
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
